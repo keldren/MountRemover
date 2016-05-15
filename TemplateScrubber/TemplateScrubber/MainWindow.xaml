@@ -14,7 +14,7 @@
         <TextBox x:Name="textBox" HorizontalAlignment="Right" Height="23" Margin="0,10,115,0" TextWrapping="Wrap" Text="7_0_3" VerticalAlignment="Top" Width="55"/>
         <Label x:Name="lblSchemaName" Content="Schema Name:" Margin="0,7,175,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="88"/>
         <Label x:Name="lblGetString" Content="GET String:" HorizontalAlignment="Right" Margin="0,35,262,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbHttpGetString" Height="23" Margin="0,38,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" HorizontalAlignment="Right" Width="247"/>
+        <TextBox x:Name="tbHttpGetString" Height="23" Margin="0,38,10,0" TextWrapping="Wrap" Text="http://wowdatabaseviewer/wowstatic_patch_7_0_3/skilllineability?format=json2&amp;limit=1000&amp;offset=0&amp;order=id+asc&amp;select=SPELL&amp;where=skillline+%3D+777" VerticalAlignment="Top" HorizontalAlignment="Right" Width="247" FontSize="8"/>
 
     </Grid>
 </Window>
