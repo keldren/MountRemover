@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="741.525">
     <Grid>
-        <Button x:Name="btnLoadTemplates" Content="Load Templates" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="93"/>
+        <Button x:Name="btnLoadTemplates" Content="Load Templates" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="93" Click="btnLoadTemplates_Click"/>
         <ListBox x:Name="lbLoadedTemplates" Height="274" Margin="10,35,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="216"/>
         <Button x:Name="btnScrubTemplate" Content="Scrub Templates" Margin="0,289,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100"/>
         <Button x:Name="btnLoadMounts" Content="Load Mount List" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100"/>

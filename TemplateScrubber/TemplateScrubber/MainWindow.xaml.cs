@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,29 @@ namespace TemplateScrubber
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        // Let's load the files we want to scrub.  Multi select so we can grab them all at once if we want.
+        private void btnLoadTemplates_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog loadTemplateFileDialog = new OpenFileDialog();
+            string fileName = "";
+            loadTemplateFileDialog.Filter = "Character Template XML|*.xml";
+            loadTemplateFileDialog.Title = "Select Templates to Scrub";
+            loadTemplateFileDialog.Multiselect = true;
+            Nullable<bool> result = loadTemplateFileDialog.ShowDialog();
+            if (result == true)
+            {
+                fileName = loadTemplateFileDialog.FileNames[0];
+            }
+
+            if (fileName != "")
+            {
+                foreach (String file in loadTemplateFileDialog.FileNames)
+                {
+                    // Well, I guess I better do something with them...
+                }
+            }
         }
     }
 }
