@@ -25,7 +25,7 @@ namespace TemplateScrubber
     public partial class MainWindow : Window
     {
 
-        StringCollection fileNames = new StringCollection();
+        List<FileToScrub> filesToScrub = new List<FileToScrub>();
         string mountRemovalPattern = @"<spell id=""(\d*)""";
         public MainWindow()
         {
@@ -49,11 +49,15 @@ namespace TemplateScrubber
                     foreach (String file in loadTemplateFileDialog.FileNames)
                     {
                         // Well, I guess I better do something with them...
-                        fileNames.Add(file);
+                        FileToScrub fileToScrub = new FileToScrub();
+                        fileToScrub.FilePath = file;
+                        fileToScrub.FileName = System.IO.Path.GetFileName(file);
+                        filesToScrub.Add(fileToScrub);
                     }
                 }
 
-                lbLoadedTemplates.ItemsSource = fileNames;
+                lbLoadedTemplates.ItemsSource = filesToScrub;
+
             }
             
             
@@ -63,17 +67,19 @@ namespace TemplateScrubber
         {
             Regex mountFinder = new Regex(mountRemovalPattern);
             string input = "";
-            foreach (string file in fileNames)
+            foreach (FileToScrub file in filesToScrub)
             {
 
-                StreamReader fileReader = new StreamReader(file);
+                StreamReader fileReader = new StreamReader(file.FilePath);
                 while (input != null)
                 {
                     input = fileReader.ReadLine();
 
                     if (input != null)
                     {
-                        if(!mountFinder.IsMatch(input))
+                        bool matchFound = false;
+
+                        if(!matchFound)
                         {
 
                         }
