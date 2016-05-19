@@ -65,27 +65,42 @@ namespace TemplateScrubber
 
         private void btnScrubTemplate_Click(object sender, RoutedEventArgs e)
         {
-            Regex mountFinder = new Regex(mountRemovalPattern);
-            string input = "";
-            foreach (FileToScrub file in filesToScrub)
+            // Let's create a directory for us to work in.
+            if(filesToScrub.Count() != 0)
             {
+                SaveFileDialog saveScrubbedTemplateDialog = new SaveFileDialog();
+                saveScrubbedTemplateDialog.InitialDirectory = filesToScrub[0].FilePath;
 
-                StreamReader fileReader = new StreamReader(file.FilePath);
-                while (input != null)
+                Nullable<bool> result = saveScrubbedTemplateDialog.ShowDialog();
+
+                Regex mountFinder = new Regex(mountRemovalPattern);
+                string input = "";
+                foreach (FileToScrub file in filesToScrub)
                 {
-                    input = fileReader.ReadLine();
 
-                    if (input != null)
+                    StreamReader fileReader = new StreamReader(file.FilePath);
+                    while (input != null)
                     {
-                        bool matchFound = false;
+                        input = fileReader.ReadLine();
 
-                        if(!matchFound)
+                        if (input != null)
                         {
+                            bool matchFound = false;
 
+                            if (!matchFound)
+                            {
+
+                            }
                         }
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show("No files selected for scrubbing.", "Error - No Files to Scrub");
+                
+            }
+            
         }
     }
 }
